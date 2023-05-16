@@ -41,20 +41,23 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            """
-            A method that finds and returns the appropiate page of a dataset
-            """
-            assert type(page) is int and page > 0
-            assert type(page_size) is int and page_size > 0
+        """
+        A method that finds and returns the appropiate page of a dataset
+        """
+        assert type(page) is int and page > 0
+        assert type(page_size) is int and page_size > 0
 
-            dataset = self.dataset()
-            row_indexes = index_range(page, page_size)
+        dataset = self.dataset()
+        start, end = index_range(page, page_size)
 
-            if row_indexes[0] > len(row_indexes):
-                return []
+        if start >= len(dataset):
+            return []
 
-            if row_indexes[1] > len(row_indexes):
-                row_indexes = (row_indexes[0], len(row_indexes) - 1)
+        if end > len(dataset):
+            end = len(dataset)
+
+        return dataset[start:end]
+
 
 if __name__ == '__main__':
     from pprint import pprint
@@ -63,4 +66,5 @@ if __name__ == '__main__':
 
     dataset = myServer.dataset()
 
-    pprint(type(dataset))
+    # pprint(len(dataset))
+    pprint(dataset[-1])
