@@ -18,7 +18,6 @@ class BasicCache(BaseCaching):
         """
         Add an item in the cache
         """
-        # raise NotImplementedError("put must be implemented in your cache class")
         if key is not None and item is not None:
             self.cache_data[key] = item
 
@@ -26,7 +25,6 @@ class BasicCache(BaseCaching):
         """
         Get an item by key
         """
-        # raise NotImplementedError("get must be implemented in your cache class")
         if key is not None:
             return self.cache_data.get(key)
 
