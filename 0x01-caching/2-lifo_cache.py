@@ -35,7 +35,6 @@ class LIFOCache(BaseCaching):
             if key not in cache_keys:
                 cache_keys.append(key)
 
-
     def get(self, key):
         """
         Get an item by key
