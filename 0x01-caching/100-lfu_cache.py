@@ -8,7 +8,8 @@ BaseCaching = __import__('base_caching').BaseCaching
 class LFUCache(BaseCaching):
     """
     A class that inherits from BaseCaching and is a caching system
-    without limit
+    without limit. That handles overflow with the
+    least frequency used (LFU) algorithm
     """
 
     def __init__(self) -> None:
